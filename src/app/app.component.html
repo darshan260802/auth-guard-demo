@@ -12,6 +12,9 @@
           [innerText]="route.name"
           (click)="user && user.uid.length && navigate(route.path)"
         ></button>
+        <input type="text" [(ngModel)]="test">
+        <button (click)="handleRoute(false)">Disable</button>
+        <button (click)="handleRoute(true)" >Enable</button>
       </div>
       <div>
         <button class="btn-green" *ngIf="!user.uid.length">Login</button>

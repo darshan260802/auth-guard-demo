@@ -10,18 +10,23 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { userActions } from 'src/store/user.action';
 import { User } from 'src/store/user.reducer';
+import { RoutesService } from './routes.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(private router: Router, private store: Store<{ user: User }>) {}
+  constructor(private router: Router, private store: Store<{ user: User }>, private routeService:RoutesService) {}
 
   async canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Promise<boolean> {
+    console.log(this.routeService.getDisabledRoutes());
+    
+    if(this.routeService.getDisabledRoutes().includes(state.url.split('/')[1])) return false;
 
+    
     const localUser:User = JSON.parse(localStorage.getItem('user') ?? '{}');
     const sessionUser:Partial<User> = JSON.parse(sessionStorage.getItem('user') ?? "{}");
     if(localUser.uid === sessionUser.uid &&  localUser.email === sessionUser.email){

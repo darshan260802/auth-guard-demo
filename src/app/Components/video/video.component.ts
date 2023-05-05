@@ -1,5 +1,7 @@
 import {
+  AfterViewChecked,
   AfterViewInit,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   OnInit,
@@ -12,13 +14,14 @@ import { User } from 'src/store/user.reducer';
   templateUrl: './video.component.html',
   styleUrls: ['./video.component.scss'],
 })
-export class VideoComponent implements AfterViewInit {
+export class VideoComponent implements AfterViewInit{
   @ViewChild('video') vidRef!: ElementRef;
   video!: HTMLVideoElement;
 
-  constructor() {}
+  constructor(private cd:ChangeDetectorRef) {}
 
   ngAfterViewInit(): void {
+    this.cd.detach()
     this.video = this.vidRef.nativeElement;
     const user = localStorage.getItem('user');
     if (user) {      
@@ -35,7 +38,10 @@ export class VideoComponent implements AfterViewInit {
         })
       );
     }, 2000);
+    this.cd.reattach();
+    this.cd.detectChanges()    
   }
+
 
   play(): void {
     if (!this.video) return;
