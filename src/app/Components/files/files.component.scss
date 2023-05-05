@@ -1,0 +1,45 @@
+.container-file {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  & > label {
+    width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .dropzone {
+    width: 600px;
+    height: 300px;
+    margin-top: 20px;
+    border: 1px solid silver;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    gap: 3px;
+    div {
+      display: flex;
+      align-items: center;
+      padding: 5px;
+      background-color: darkcyan;
+      color: white;
+      span {
+        display: inline-block;
+        padding: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        &:last-child{
+            border: 1px solid;
+            padding: 5px;
+            border-radius: 100vmax;
+            cursor: pointer;
+        }
+      }
+    }
+  }
+}

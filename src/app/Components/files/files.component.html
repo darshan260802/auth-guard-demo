@@ -1,0 +1,19 @@
+<div class="container-file">
+    <input type="file" [ngStyle]="{display:'none'}" id="INP" multiple #fileInp (input)="handleInput(fileInp)">
+    <label>
+        <label (click)="fileInp.click()">
+            <button class="btn btn-green"  >Choose Files: {{files.length}}</button>
+        </label>
+        <button class="btn btn-yellow" *ngIf="files.length" (click)="files = []" >Clear All</button>
+    </label>
+    <div class="dropzone" (dragover)="$event.preventDefault(); $event.stopPropagation()" (drop)="handleDrop($event)" >
+        <span *ngIf="!files.length">Choose File or Drop Here</span>
+        <div class="file" *ngFor="let file of files;let i = index" >
+            <span [ngStyle]="{flex:2}" >{{file.name}}</span>
+            <span [ngStyle]="{flex:1}" >{{file.type.split('/')[1]}}</span>
+            <span [ngStyle]="{flex:1}" >{{file.size/1024 | number:'1.0-0'}} kb</span>
+            <span  (click)="removeFile(i)" >X</span>
+        </div>
+    </div>
+    
+</div>

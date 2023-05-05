@@ -3,14 +3,26 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { StoreModule } from '@ngrx/store';
+import { userReducer } from 'src/store/user.reducer';
+import { LoginComponent } from './Components/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { VideoComponent } from './Components/video/video.component';
+import { FilesComponent } from './Components/files/files.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    VideoComponent,
+    FilesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    StoreModule.forRoot({user:userReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]

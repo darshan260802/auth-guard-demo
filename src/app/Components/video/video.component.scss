@@ -1,0 +1,41 @@
+.container-video {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .video {
+    height: 400;
+    width: 600px;
+    box-shadow: 0 0 10px 1px silver;
+    video {
+      height: 400;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .actions {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    input{
+        width: 600px;
+        accent-color: darkblue;
+    }
+    div:last-of-type {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 10px;
+      button{
+        padding: 5px 10px;
+        border: 0;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    }
+  }
+}

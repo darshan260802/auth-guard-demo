@@ -1,0 +1,13 @@
+<div class="container-video">
+    <div class="video">
+        <video (click)="togglePlay()"  #video src="assets/videos/Sample.mp4" (timeupdate)="$event" ></video>
+    </div>
+    <div class="actions" *ngIf="video">
+        <input type="range" [(ngModel)]="video.currentTime" [max]="video.duration" >
+        <div>
+            <button (click)="play()" class="btn-green" >Play</button>
+            <button (click)="pause()" class="btn-yellow"  >Pause</button>
+            <button (click)="stop()" class="btn-red"  >Stop</button>
+        </div>
+    </div>
+</div>
