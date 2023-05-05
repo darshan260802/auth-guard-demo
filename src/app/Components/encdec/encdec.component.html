@@ -1,0 +1,11 @@
+<div class="container-enc">
+    <label>
+        <input type="text" placeholder="Enter Plain Text"  [(ngModel)]="enc">
+        <button (click)="encrypt()" >Encrypt</button>
+    </label>
+    <label>
+        <input type="text" placeholder="Enter Cipher Token"   [(ngModel)]="dec">
+        <button (click)="decrypt()" >Decrypt</button>
+    </label>
+    <h2>{{res}}</h2>
+</div>

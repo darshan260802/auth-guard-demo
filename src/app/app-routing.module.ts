@@ -4,6 +4,7 @@ import { AuthGuard } from './Shared/auth.guard';
 import { LoginComponent } from './Components/login/login.component';
 import { VideoComponent } from './Components/video/video.component';
 import { FilesComponent } from './Components/files/files.component';
+import { EncdecComponent } from './Components/encdec/encdec.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,11 @@ const routes: Routes = [
     path: 'file-upload',
     canActivate: [AuthGuard],
     component: FilesComponent,
+  },
+  {
+    path: 'enc-dec',
+    canActivate: [AuthGuard],
+    component: EncdecComponent,
   },
   {
     path: '**',

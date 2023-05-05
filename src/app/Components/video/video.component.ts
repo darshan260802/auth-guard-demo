@@ -26,7 +26,7 @@ export class VideoComponent implements AfterViewInit {
     }
 
     setInterval(() => {
-      if (!user || !this.video || this.video.paused) return;
+      if (!user || !this.video ) return;
       localStorage.setItem(
         'user',
         JSON.stringify({

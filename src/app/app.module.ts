@@ -9,13 +9,15 @@ import { LoginComponent } from './Components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VideoComponent } from './Components/video/video.component';
 import { FilesComponent } from './Components/files/files.component';
+import { EncdecComponent } from './Components/encdec/encdec.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     VideoComponent,
-    FilesComponent
+    FilesComponent,
+    EncdecComponent
   ],
   imports: [
     BrowserModule,

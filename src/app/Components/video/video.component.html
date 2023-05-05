@@ -1,5 +1,6 @@
 <div class="container-video">
     <div class="video">
+        <h1>Custom Controls</h1>
         <video (click)="togglePlay()"  #video src="assets/videos/Sample.mp4" (timeupdate)="$event" ></video>
     </div>
     <div class="actions" *ngIf="video">
@@ -9,5 +10,14 @@
             <button (click)="pause()" class="btn-yellow"  >Pause</button>
             <button (click)="stop()" class="btn-red"  >Stop</button>
         </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="video">
+        <h1>Browser Controls</h1>
+        <video controls src="assets/videos/Sample.mp4" ></video>
     </div>
 </div>
